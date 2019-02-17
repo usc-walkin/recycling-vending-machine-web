@@ -21,7 +21,9 @@ class RootContainer extends React.Component {
       };
     });
 
-    this.map.zoomTo(13);
+    this.map.zoomTo(13, {
+      duration: 2000,
+    });
 
     axios.post('http://localhost:5123/run', {
       data: {
@@ -44,7 +46,6 @@ Token received: ${data.result.tokenValue}
       .catch((err) => {
         console.error(err);
       });
-
   };
 
   handleClickWithdrawCoin = (e) => {
