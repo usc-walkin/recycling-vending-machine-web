@@ -10,17 +10,17 @@
     "moduleResolution": "node",
     "noEmit": true,
     "paths": {
-      "@@config": [
-        "src/config/config" 
-      ],
-      "@@middlewares/*": [
-        "src/middlewares/*" 
+      "@@components/*": [
+        "src/universal/components/*" 
       ],
       "@@modules/*": [
-        "src/modules/*" 
+        "src/universal/modules/*" 
       ],
       "@@src/*": [
         "src/*"
+      ],
+      "@@utils/*": [
+        "src/universal/utils/*"
       ],
     },
     "lib": [

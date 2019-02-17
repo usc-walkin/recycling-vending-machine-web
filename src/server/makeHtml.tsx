@@ -1,6 +1,7 @@
 import { attachAssets } from '@nodekit/express-isomorphic';
 import * as React from 'react';
 import { renderToString } from 'react-dom/server';
+import { ServerStyleSheet } from 'styled-components';
 
 const makeHtml: MakeHtml = async function ({
   assets,
@@ -15,14 +16,15 @@ const makeHtml: MakeHtml = async function ({
     Universal = () => <div>RootContainer not found</div>;
   }
 
-  console.log(123, assets);
-
   const appRoot = (
     <Universal />
   );
 
   const appRootInString = renderToString(appRoot);
   console.log('[make-html] app in string: %s', appRootInString);
+
+  const sheet = new ServerStyleSheet();
+  const styledComponentsStyleTags = sheet.getStyleTags();
 
   return `
 <!DOCTYPE html>
@@ -31,6 +33,9 @@ const makeHtml: MakeHtml = async function ({
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,height=device-height,initial-scale=1">
   <title>express-isomorphic-example</title>
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
+  <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet' />
+  ${styledComponentsStyleTags}
 </head>
 <body>
   <div id="app-root">${appRootInString}</div>

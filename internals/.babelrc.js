@@ -1,8 +1,18 @@
 module.exports = {
   "plugins": [
+    'react-hot-loader/babel',
+    [
+      'babel-plugin-styled-components',
+      {
+        displayName: true,
+        ssr: true,
+      },
+    ],
     [
       "module-resolver", {
         "alias": {
+          '@@components': './src/universal/components',
+          '@@utils': './src/universal/utils',
         },
       }
     ],
