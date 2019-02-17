@@ -90,11 +90,23 @@ Token received: ${data.result.tokenValue}
         zoom: 9,
       });
 
-      const marker = new mapboxgl.Marker({
+      new mapboxgl.Marker({
         draggable: false,
       })
         .setLngLat([-118.2851, 34.0224])
         .addTo(this.map);
+
+      new mapboxgl.Marker({
+        draggable: false,
+      })
+        .setLngLat([-118.2881, 34.0239])
+        .addTo(this.map);
+
+        new mapboxgl.Marker({
+          draggable: false,
+        })
+          .setLngLat([-118.2841, 34.0242])
+          .addTo(this.map);
     }
   }
 

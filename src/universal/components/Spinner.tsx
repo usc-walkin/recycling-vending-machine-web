@@ -10,14 +10,19 @@ const KeyFramesFadeIn = keyframes`
   }
 `;
 
+// const StyledSpinner = styled.div`
+//   align-items: center;
+//   animation: ${KeyFramesFadeIn} 1s linear infinite;
+//   background-color: white;
+//   display: flex;
+//   flex-direction: row;
+//   height: 100vw;
+//   justify-content: center;
+// `;
+
 const StyledSpinner = styled.div`
-  align-items: center;
-  animation: ${KeyFramesFadeIn} 1s linear infinite;
-  background-color: white;
-  display: flex;
-  flex-direction: row;
-  height: 100vw;
-  justify-content: center;
+  color: green;
+  margin-top: 5px;
 `;
 
 const Spinner: React.FC<any> = ({
@@ -25,9 +30,9 @@ const Spinner: React.FC<any> = ({
 }) => {
   return show 
     ? (
-      <div>
+      <StyledSpinner>
         data is fetching...
-      </div>
+      </StyledSpinner>
     )
     : null;
 };
