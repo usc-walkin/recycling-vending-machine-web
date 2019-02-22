@@ -51,17 +51,31 @@ const StatusMessage = styled.div`
 
 const ButtonGroup = styled.div`
   margin-top: 13px;
+
+  > div {
+    margin-bottom: 3px;
+  }
 `;
 
 const Button = styled.div`
   cursor: pointer;
   text-decoration: underline;
+  
+  &:hover {
+    color: green;
+  }
+`;
+
+const ItemScanned = styled.div`
+  background-color: #f1f1f1;
+  margin: 3px 0;
 `;
 
 const Root = ({
   handleClickReturnProduct,
   handleClickWithdrawCoin,
   isFetchingData,
+  itemScanned,
   message,
 }) => {
   return (
@@ -76,6 +90,9 @@ const Root = ({
           <StatusMessage>
             {message}
           </StatusMessage>
+          <ItemScanned>
+            {itemScanned}
+          </ItemScanned>        
           <Spinner show={isFetchingData} />
           <ButtonGroup>
             <Button onClick={handleClickReturnProduct}>

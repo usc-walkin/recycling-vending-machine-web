@@ -10,6 +10,7 @@ class RootContainer extends React.Component {
   map;
   state = {
     isFetchingData: false,
+    itemScanned: undefined,
     message: 'Hi, Catherine! How can I help you?',
   };
 
@@ -17,7 +18,8 @@ class RootContainer extends React.Component {
     this.setState((state) => {
       return {
         isFetchingData: true,
-        message: 'Your item is a CRYSTAL GEYSER platic bottle [sku: 7514000502]\n Please wait until we finish the transaction... This can take upto 30 seconds according to the ledger availability',
+        itemScanned: 'CRYSTAL GEYSER platic bottle [sku: 7514000502]',
+        message: 'Your item has been scanned. Please wait until we finish the transaction... This can take upto 30 seconds according to the ledger availability',
       };
     });
 
@@ -117,6 +119,7 @@ Token received: ${data.result.tokenValue}
         handleClickReturnProduct={this.handleClickReturnProduct}
         handleClickWithdrawCoin={this.handleClickWithdrawCoin}
         isFetchingData={this.state.isFetchingData}
+        itemScanned={this.state.itemScanned}
         message={this.state.message}
       />
     );
