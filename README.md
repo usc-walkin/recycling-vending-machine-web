@@ -1,2 +1,2 @@
 # Recycling Vending Machine Web
-Description will be posted later...
+Please check the document [here](https://github.com/usc-walkin/operator).
